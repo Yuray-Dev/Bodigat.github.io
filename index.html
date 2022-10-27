@@ -1,163 +1,123 @@
 <!DOCTYPE html>
-<html lang="DE-de">
+<html lang="de-DE">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stundenplan online</title>
+    <title>Blockchain</title>
+    <link rel="icon" href="Titelbild.jpg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="Bilder/books-2596809.jpg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 </head>
 
 <body>
-    <header>Online Stundenplan</header>
+    <header>Blockcain</header>
+    <div class="col-1400">
+        <section class="width-25">
+            <h2>Blöcke</h2>
+            <div class="card">Hier kommen Block Infos rein</div>
+        </section>
+        <section class="col">
+            <div class="col-750">
+                <section>
+                    <h2>Transaktionen</h2>
+                    <div class="mb-16">
+                        <select name="from" id="from" class="mr-16">
+                        <option value="" disabled>Von</option>
+                        <option value="Bodigat">Bodigat</option>
+                        <option value="Jannik">Jannik</option>
+                        <option value="Malte">Malte</option>
+                    </select>
+                        <select name="to" id="to">
+                        <option value="" disabled>ZU</option>
+                        <option value="Bodigat">Bodigat</option>
+                        <option value="Jannik">Jannik</option>
+                        <option value="Malte">Malte</option>
+                    </select>
+                    </div>
+                    <div>
+                        <input type="number" min="1" placeholder="Betrag" id="amount" class="mr-16"></input>
+                        <button onclick="sendMoney()">Abschicken</button>
+                    </div>
+                </section>
+                <section>
+                    <h2>Nodes</h2>
+                    <div class="row mb-16">
+                        <div class="play-btn" id="n0" onclick="startNode0()"></div>
+                        Node 0 - Bodigat
+                    </div>
+                    <div class="row">
+                        <div class="play-btn" id="n1" onclick="startNode1()"></div>
+                        Node 1 - Jannik
+                    </div>
+                </section>
+            </div>
+            <div class="col-850 fill-rest">
+                <section style="text-align: center;">
+                    <h2 style="text-align: center;">Transaktionen</h2>
+                    <div class="card mb-16">Manuel ➱ Junus 5€</div>
+                    <div class="card">Junus ➱ Bodigat 4€</div>
+                </section>
+                <section>
+                    <h2 style="text-align: center;">Daten</h2>
+                    <canvas id="myChart"></canvas>
+                </section>
+                <section>
+                    <h2 style="text-align: center;">Logs</h2>
 
-    <table id="table">
-        <tr>
-            <td style="background-color: rgb(0, 0, 0);">20/23</td>
-            <td style="background-color: rgb(94, 94, 94);">Montag</td>
-            <td style="background-color: rgb(94, 94, 94);">Dienstag</td>
-            <td style="background-color: rgb(94, 94, 94);">Mittwoch</td>
-            <td style="background-color: rgb(94, 94, 94);">Donnerstag</td>
-            <td style="background-color: rgb(94, 94, 94);">Freitag</td>
-        </tr>
-        <tr>
-            <td style="background-color: #1c9112;">1.</td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-        </tr>
-        <tr>
-            <td style="background-color: #1c9112;">2.</td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-        </tr>
-        <tr>
-            <td style="background-color: #1c9112;">3.</td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-        </tr>
-        <tr>
-            <td style="background-color: #1c9112;">4.</td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-        </tr>
-        <tr>
-            <td style="background-color: #1c9112;">5.</td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-        </tr>
-        <tr>
-            <td style="background-color: #1c9112;">6.</td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-        </tr>
-        <tr>
-            <td style="background-color: #1c9112;">7.</td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-        </tr>
-        <tr>
-            <td style="background-color: #1c9112;">8.</td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-        </tr>
-        <tr>
-            <td style="background-color: #1c9112;">9.</td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-        </tr>
-        <tr>
-            <td style="background-color: #1c9112;">10.</td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-            <td><input type="text" style="text-align: center;"></input>
-            </td>
-        </tr>
-    </table>
+                    <div id="logs">
 
-    <button>Speichern</button>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
 
-    <h6 id="bildbe">Bild von<a id="bildbe" href="https://pixabay.com/de/users/qimono-1962238/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3652876">Arek Socha</a></h6>
+    <script src="broadcaster.js"></script>
+    <script src="sha256.js"></script>
+    <script src="block.class.js"></script>
+    <script src="blockchain.class.js"></script>
+    <script src="mining-node.class.js"></script>
+    <script src="script.js"></script>
 
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: CHART_DATA.labels,
+                datasets: [{
+                    label: 'AN / AUS',
+                    data: CHART_DATA.amounts,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
